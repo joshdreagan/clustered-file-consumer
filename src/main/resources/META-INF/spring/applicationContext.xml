@@ -23,6 +23,13 @@ limitations under the License.
     <constructor-arg value="META-INF/infinispan/infinispan-clustered.xml"/>
   </bean>
 
+  <!--
+  NOTE: This is just here to eagerly initialize the cache. Should be unnecessary in future version.
+  -->
+  <bean id="cache" factory-bean="cacheManager" factory-method="getCache" lazy-init="false">
+    <constructor-arg value="in-progress-repo-cache"/>
+  </bean>
+
   <bean id="clusteredInProgressRepository" class="org.apache.camel.component.infinispan.processor.idempotent.InfinispanIdempotentRepository" factory-method="infinispanIdempotentRepository">
     <constructor-arg ref="cacheManager"/>
     <constructor-arg value="in-progress-repo-cache"/>
