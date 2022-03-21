@@ -3,8 +3,6 @@ Clustered Camel File Consumer
 
 This example shows how to consume files from a shared directory across multiple JVM instances. It does so by using a shared `inProgressRepository`. In this example, I used Inifinispan, but it could just as easily be a database or any other `org.apache.camel.spi.IdempotentRepository`.
 
-_Note: If using Camel 2.16 or greater, there's an even easier way to do this using the "idempotent" `readLock` strategy. This example is provided to show how to do the same on previous versions of Camel such as the version shipped with JBoss Fuse 6.2.x._
-
 Requirements
 ------------
 
